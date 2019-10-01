@@ -1,6 +1,4 @@
-
-const { chain,physics,composite,styler, spring, value, transform, listen, valueTypes,tween,easing } = window.popmotion;
-
+const {styler,tween,easing} = window.popmotion;
 class PopAnimator{
   constructor(BubbleObject){
     this.BubbleObject = styler(BubbleObject);
@@ -21,6 +19,7 @@ class MobileStage extends Stage{
   startOne(){
     this.IntroElement.addElementToDom();
     this.LinksHandler.initLinkElements("linkBox");
+    this.LinksHandler.placeLinks();
     this.IntroElement.MessageController.onComplete = ()=>this.LinksHandler.animateOneAfterAnother();
     this.IntroElement.startIntroMessage();
   }

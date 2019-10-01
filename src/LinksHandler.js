@@ -21,13 +21,19 @@ class LinksHandler{
       this.links[sectorId].appendLinkToDOM();
       this.links[sectorId].Controller.startAt(measurement);
       this.links[sectorId].Controller.moveTo = movingDirection;
+   
+
     }
   }
   animateOneAfterAnother(){
     let headLink = this.links[1];
+    //the problem was when we call place link
     for(let i=1;i<=3;i++){
       this.links[i].Controller.afterAnimation.complete=()=>{this.links[i+1].Controller.animate();};
+  
     }
+    /* head link is not getting the startat position correctly*/
+    
     headLink.Controller.animate();
   }
   animateAll(deviceType="desktop"){

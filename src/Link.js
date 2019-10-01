@@ -11,12 +11,17 @@ class LinkBubbleAnimation extends PopAnimator{
     this.BubbleObject.set(positionToSet);
   }
   animate(){
+   let obj = this.afterAnimation;
+    //error is with this;
+    console.log(this.location);
+    console.log(this.moveTo);
+
     tween({
       from:this.location,
       to: this.moveTo,
       ease: easing.easeInOut,
       duration: 1000
-    }).start(this.afterAnimation);
+    }).start(v=>this.BubbleObject.set(v));
   }
 }
 class Link{
